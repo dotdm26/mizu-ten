@@ -33,7 +33,7 @@ List of selected components:
 
 Microcontroller      : STM32F0 ARM Cortex-M0 48MHz 64/8KB
 
-SMD ADAPTER          : 
+SMD ADAPTER          : SMD ADAPTER QFP 48
 
 Temp/humidity sensor : Adafruit 393
 
@@ -42,6 +42,8 @@ Solid State Relay    : CPC1983Y
 Solenoid Valve       : Adafruit 997
 
 Wireless module      : RF-LORA-868-SO
+
+Battery         x3   : Z-A 4000JM 
 
 # Task 2
 
