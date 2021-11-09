@@ -18,6 +18,9 @@ Scope:
 
 We are required to assemble a system that can operate through an entire farm, which area can be many kilometers. For that we need to select a proper communication protocol. Moreover, we need to decide on power management, so that the units can operate efficiently. These are the main things that are required to be investigated, the rest of the components are pretty clear and do not require much investigation
 
+Overview of the project:
+
+![](images/pic.jpg)
 # Project requirement
 
 # Project Features 
