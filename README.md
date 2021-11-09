@@ -3,6 +3,7 @@ IoT project
 
 
 Problem:
+
 Agricultural business is one of the main water consumption units, an enormous amount of water gets used daily on corps, animals etc. However, not all the water gets to be used properly, a certain amount of water gets wasted each day due to issues like excess plant watering. This is not only ethically wrong, it also makes farmers waste extra money that could be saved.
 
 Solution:
