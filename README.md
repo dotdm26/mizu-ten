@@ -30,8 +30,12 @@ We are required to assemble a system that can operate through an entire farm, wh
   3. Sub Task -> Select suitable components (Minh & Andrey)
 # Task 1 outcome
 List of selected components:
-
-
+Microcontroller      : STM32F0 ARM Cortex-M0 48MHz 64/8KB
+SMD ADAPTER          : 
+Temp/humidity sensor : Adafruit 393
+Solid State Relay    : CPC1983Y
+Solenoid Valve       : Adafruit 997
+Wireless module      : RF-LORA-868-SO
 # Task 2
 
 
