@@ -23,7 +23,11 @@ Overview of the project:
 ![](images/pic.jpg)
 # Project requirement
 
+Energy
+
 # Project Features 
+
+LoRa WAN
 
 # Implementation 
 
