@@ -46,7 +46,11 @@ Wireless module      : RF-LORA-868-SO
 Battery         x3   : Z-A 4000JM 
 
 # Task 2
-
+  1. Sub Task -> Create GitHub project (Minh)
+  2. Sub Task -> Design readme file and add task outlines (Linga & Andrey)
+  3. Sub Task -> Outline results of previous task (Andrey)
+  4. Sub Task ->
+  5. Sub Task ->
 
 # Task 3
 
