@@ -28,7 +28,9 @@ We are required to assemble a system that can operate through an entire farm, wh
   1. Sub Task -> Serch a components for the project (Minh & Andrey)
   2. Sub Task -> Research on multiple components and read Datasheet (Minh & Andrey)
   3. Sub Task -> Select suitable components (Minh & Andrey)
-  
+# Task 1 outcome
+List of selected components:
+
 
 # Task 2
 
