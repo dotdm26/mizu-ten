@@ -17,3 +17,23 @@ Main objective to investigate is the power consumption for device parts. This is
 Scope:
 
 We are required to assemble a system that can operate through an entire farm, which area can be many kilometers. For that we need to select a proper communication protocol. Moreover, we need to decide on power management, so that the units can operate efficiently. These are the main things that are required to be investigated, the rest of the components are pretty clear and do not require much investigation
+
+# Project requirement
+
+# Project Features 
+
+# Implementation 
+
+# Task 1
+  1. Sub Task -> Serch a components for the project (Minh & Andrey)
+  2. Sub Task -> Research on multiple components and read Datasheet (Minh & Andrey)
+  3. Sub Task -> Select suitable components (Minh & Andrey)
+  
+
+# Task 2
+
+
+# Task 3
+
+
+# Task 4
