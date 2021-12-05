@@ -1,4 +1,5 @@
 'use strict';
+
 const url = '.';
 const navi_dash = document.querySelector('#dash');
 const navi_chart = document.querySelector('#chart');
@@ -39,7 +40,8 @@ const loadChartData = async(sample_data) => {
             icon: 'info',
             title: 'The file is empty'
         });
-    } else {
+    } 
+    else {
         if (pres.length > 0) {
             pres.length = 0
                 // console.log("pres slice ", pres.length);
@@ -81,7 +83,8 @@ const getTheData = async() => {
         if (json.success == 1) {
             loadChartData(JSON.parse(json.result));
             mesg = 0;
-        } else {
+        } 
+        else {
             mesg++;
             if (mesg + 1 == 3) {
                 Toast.fire({
@@ -90,7 +93,8 @@ const getTheData = async() => {
                 });
             }
         }
-    } else {
+    } 
+    else {
         realtime = 'off';
         Toast.fire({
             icon: 'info',

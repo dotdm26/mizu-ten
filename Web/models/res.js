@@ -14,5 +14,4 @@ module.exports = {
     unauthorizedRequest: function(message, res) {
         return res.status(401).json({ result: {}, message: message, success: 0, statusCode: 401 });
     }
-
 }

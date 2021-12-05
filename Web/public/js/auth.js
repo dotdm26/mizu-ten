@@ -9,6 +9,7 @@ var Toast = Swal.mixin({
     showConfirmButton: false,
     timer: 3000
 });
+
 auth.addEventListener('submit', async(evt) => {
     evt.preventDefault();
     const fetchOptions = {
@@ -35,5 +36,4 @@ auth.addEventListener('submit', async(evt) => {
             title: json.message
         })
     }
-
 });

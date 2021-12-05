@@ -9,5 +9,6 @@ var Users_infoSchema = new Schema(
         status: {type: Number, required: true}
     }
 );
+
 //Export model
 module.exports = mongoose.model('EMDUser', Users_infoSchema);

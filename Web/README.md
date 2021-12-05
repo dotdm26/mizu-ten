@@ -16,6 +16,12 @@ This part of our IT project consists of a web part for the convenience of users 
 ```bash
     cd ....
 ```
+- Clone the project
+```bash
+    git clone https://github.com/dotdm26/mizu-ten.git
+```
+- Open your code editor
+
 ## Authors
 
 - [@danilsisov](https://www.github.com/danilsisov)
