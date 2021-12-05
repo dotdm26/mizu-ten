@@ -27,7 +27,10 @@ let mqtt_Data = []; // temp data store for send back reaquest
 let old_length_dash = 0; // for validate repeat sending data 
 let old_length_chart = 0; // for validate repeat sending data
 let new_len = 0; // getting how many data already received
-// readthe file from json file 
+
+
+// read the file from json file 
+
 const read_file = async() => {
         // read the data
         fs.readFile(file_loacation, 'utf8', (err, data) => {
@@ -43,6 +46,11 @@ const read_file = async() => {
             }
         });
     }
+
+    
+    /* Might still need it*/
+
+
     /* sleep funtion for wait utill the data collected .*/
 const sleep = async(ms) => {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -73,6 +81,8 @@ router.get("/login", (req, res, next) => {
 router.get("/register", (req, res, next) => {
     res.status(200).render(path.resolve(__dirname + '/views/register'));
 });
+
+
 /* LOGIN USER. 
  * encrypt the passwoard before find the data in database database
  * find the data if exist then create a session for user auth*/
@@ -116,6 +126,8 @@ router.post('/register', (req, res) => {
     })
 });
 
+
+
 /* GET LOGOUT 
  * when success destroy the session that hold user info 
  */
@@ -129,6 +141,10 @@ router.get('/logout', function(req, res) {
         }
     });
 });
+
+
+/* REQUIRED */
+
 /* GET index
  * Check for the user authentication 
  *  acess the dashboard page
@@ -140,6 +156,12 @@ router.get("/index", (req, res, next) => {
         res.status(200).render(path.resolve(__dirname + '/views/index'));
     }
 });
+
+
+
+/* DELETE THIS */
+
+
 
 /* GET chart
  * Check for the user authentication 
@@ -193,6 +215,9 @@ router.get("/loaddash", async(req, res, next) => {
     }
 });
 
+
+/* DELETE THIS */
+
 /* GET loadchart
  * Check for the user authentication 
  * Check for the newly added data
@@ -233,6 +258,9 @@ router.get("/loadchart/:totalPoints", async(req, res, next) => {
 
 });
 
+
+/* DELETE THIS */
+
 /* GET set/pressure
  * Check for the user authentication 
  * send the pressure data using mqtt client.publish
@@ -270,6 +298,11 @@ router.get("/set/pressure/:value", async(req, res, next) => {
     }
 
 });
+
+
+/* DELETE THIS */
+
+
 
 /* GET set/speed
  * Check for the user authentication 
