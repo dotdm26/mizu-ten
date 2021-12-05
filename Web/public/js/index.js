@@ -52,7 +52,8 @@ function sendData(url, data) {
                         icon: 'success',
                         title: json.message
                     })
-                } else {
+                } 
+                else {
                     Toast.fire({
                         icon: 'success',
                         title: 'data :' + data
@@ -60,7 +61,8 @@ function sendData(url, data) {
                 }
                 mesg++;
                 updateData();
-            } else {
+            } 
+            else {
                 Toast.fire({
                     icon: 'error',
                     title: json.message
@@ -105,7 +107,6 @@ $('#speed_range').parent().on('click', function() {
             mesg = 0;
         }
         realtimeauto = 'off';
-
         realtimeauto_speed = 'off';
         console.log("S", speed_range.value);
         sendData("set/speed/", speed_range.value);
@@ -113,7 +114,6 @@ $('#speed_range').parent().on('click', function() {
 });
 
 $('#presser_range').parent().on('click', function() {
-
     if (auto_mode_check.checked) {
         if (realtimeauto_pres == 'on') {
             auto_mode_set_p.innerHTML = "Pressure (sends data)";
@@ -151,13 +151,13 @@ function realTimeLoadData() {
                     });
                     console.log("P", presser_range.value);
                 }
-            } else {
+            } 
+            else {
                 realtimeauto = 'off';
                 Toast.fire({
                     icon: 'error',
                     title: json.message
                 })
-
             }
         }
     };
@@ -180,7 +180,8 @@ auto_mode_check.addEventListener("click", async() => {
         document.querySelector('#presser_range1').classList.add("auto_mode");
         $speed_range.update({ "disable": true });
         $presser_range.update({ "disable": true });
-    } else {
+    } 
+    else {
         $speed_range.update({ "disable": false });
         $presser_range.update({ "disable": false });
         realtimeauto = 'off';
@@ -221,7 +222,8 @@ const logout = async() => {
             title: json.message
         })
         window.location.href = "http://localhost:3000/login";
-    } else {
+    } 
+    else {
         Toast.fire({
             icon: 'error',
             title: json.message

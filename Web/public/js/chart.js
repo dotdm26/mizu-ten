@@ -23,17 +23,16 @@ var Toast = Swal.mixin({
     timer: 3000
 });
 
-
 Toast.fire({
     icon: 'info',
     title: 'Waiting for the Data'
 })
+
 const sleep = async(ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 const loadChartData = async(sample_data) => {
-
     var new_len = sample_data.length;
     if (new_len == 0) {
         Toast.fire({
@@ -44,7 +43,6 @@ const loadChartData = async(sample_data) => {
     else {
         if (pres.length > 0) {
             pres.length = 0
-                // console.log("pres slice ", pres.length);
         }
         let z = new_len - totalPoints; // get last 100 data
         while (pres.length < totalPoints) {
@@ -54,7 +52,6 @@ const loadChartData = async(sample_data) => {
 
         if (speed.length > 0) {
             speed.length = 0
-                // console.log("speed slice ", speed.length);
         }
 
         z = new_len - totalPoints;
@@ -63,8 +60,6 @@ const loadChartData = async(sample_data) => {
             speed.push(sample_data[z].speed);
             z++;
         }
-        // console.log("speed ", speed.length);
-        //  console.log("pressure ", pres.length);
     }
     mesg = 0;
 }

@@ -30,7 +30,8 @@ auth.addEventListener('submit', async(evt) => {
             title: json.message
         })
         window.location.href = "http://localhost:3000/index";
-    } else {
+    } 
+    else {
         Toast.fire({
             icon: 'error',
             title: json.message

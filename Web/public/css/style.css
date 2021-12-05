@@ -1,5 +1,6 @@
 html {
     font-size: 22px;
+    background: rgb(255, 255, 255);
 }
 
 /* Body stsyle */
@@ -32,20 +33,22 @@ p {
 
 /* Login form */
 .wrapper-login {
-    background: #dbdfe5;
+    background: #c7cace;
     width: 450px;
+    opacity: 0.9;
     min-height: 300px;
     display: block;
-    margin: 5em auto;
+    margin: 10em auto;
     position: relative;
 }
 
 .wrapper-register {
-    background: #dbdfe5;
+    background: #c7cace;
     width: 450px;
+    opacity: 0.9;
     min-height: 400px;
     display: block;
-    margin: 5em auto;
+    margin: 10em auto;
     position: relative;
 }
 
@@ -161,12 +164,10 @@ p {
     visibility: visible;
 }
 
-
 /* Chart*/
 #interactive {
     height: 400px;
 }
-
 
 /* */
 .btn .active {
