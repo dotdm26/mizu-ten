@@ -1,8 +1,24 @@
-# IOT
+# IOT Project
 
-ventilation system remote controlling site
+This part of our IT project consists of a web part for the convenience of users and administrators. 
 
-# site features
-The main idea of this project is to create an easy and convenient interface with a pleasant and safe design for monitoring and regulating the ventilation system. This project should have authentication in order to allow different users to have personal control over the system and should have a database to store data. Moreover, it needs to operate in Manual and Automatic modes that user can freely switch between.
+# Main features
+- The main idea of this project is to create an easy and convenient interface for users
+- Authentication
+- Communication with Database
+- Visualizing data
+- User and Admin login
 
-The webpage has dashboard (views/index.ejs) and chart (views/chart.ejs). Dashboard is used to set either Speed or Pressure, depending on which mode is used, Chart represents data patterns.
+# User manual
+
+- Download Git bash
+- Go to derictory that you need
+```bash
+    cd ....
+```
+## Authors
+
+- [@danilsisov](https://www.github.com/danilsisov)
+- [@andreyverbovskiy](https://www.github.com)
+- [@dotdm26](https://www.github.com)
+- [@Linga321](https://www.github.com)
