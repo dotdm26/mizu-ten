@@ -1,6 +1,7 @@
 html {
-    font-size: 22px;
-    background: rgb(255, 255, 255);
+    font-size: 21.5px;
+    background-image: url("data/background.jpg");
+    background-size: 100%;
 }
 
 /* Body stsyle */
@@ -15,6 +16,7 @@ html {
 
 p {
     text-align: center;
+    color: rgb(255, 255, 255);
 }
 
 .label {
@@ -33,13 +35,13 @@ p {
 
 /* Login form */
 .wrapper-login {
-    background: #c7cace;
-    width: 450px;
-    opacity: 0.9;
-    min-height: 300px;
+    background-color: rgba(70, 70, 70, 0.55);
+    width: 35%;
+    min-height: 10%;
+    left: 31.5%;
     display: block;
-    margin: 10em auto;
-    position: relative;
+    top: 20%;
+    position: absolute;
 }
 
 .wrapper-register {
