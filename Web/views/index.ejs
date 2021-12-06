@@ -11,10 +11,97 @@
     <link rel="stylesheet" href="css/ion.rangeSlider.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+     
 
+  <script src=https://unpkg.com/froalacharts@1.0.0/froalacharts.js></script>
+  <script src="https://unpkg.com/froalacharts@1.0.0/themes/froalacharts.theme.froala.js"></script>
+
+  <script type="text/javascript">   
+    var data = {  chart: {
+    "majorTMNumber": "9",
+    "minorTMNumber": "4",
+    caption: "Moisture level",
+    subcaption: "Item № 1",
+    lowerlimit: "0",
+    upperlimit: "100",
+    showvalue: "1",
+    numbersuffix: "%",
+    theme: "froala",
+    //"dataStreamUrl": ,
+    "useMessageLog": "1"
+  },
+ /* "alerts": {     //alert popup
+    "alert": [{
+      // set the threshold range
+      "minvalue": "90",
+      "maxvalue": "99",
+      // action on reaching the threshold range, JavaScript function showAlert()
+      "action": "callJS",
+      "param": "showAlert('Current server CPU Utilization is low');"
+    }]
+  },  */
+  colorrange: {
+    color: [
+      {
+        minvalue: "0",
+        maxvalue: "50",
+        code: "#F2726F"
+      },
+      {
+        minvalue: "50",
+        maxvalue: "75",
+        code: "#FFC533"
+      },
+      {
+        minvalue: "75",
+        maxvalue: "100",
+        code: "#62B58F"
+      }
+    ]
+  },
+  dials: {
+    dial: [
+      {
+        value: "80",     // set value here 
+        tooltext: "9% lesser than target" // target - value % lesser than target
+      }
+    ]
+  },
+  trendpoints: {  //maybe add a 'trend arc' instead of single line (probably for temp)
+    point: [
+      {
+        startvalue: "37",
+        displayvalue: "Min Moisture level",
+        thickness: "2",
+        color: "#000000",
+        usemarker: "1",
+        markerbordercolor: "#000000",
+        markertooltext: "80%",
+        trendValueDistance: "10"
+      }
+    ]
+  }
+};
+            FroalaCharts.ready(function () {
+            new FroalaCharts({
+                id: "chart_1",
+                type: 'angulargauge',
+                renderAt: 'ft',
+                width: '800',
+                height: '500',
+                dataSource: data
+            }).render();
+        });
+    </script>
+    
 </head>
 
+
 <body>
+
+    <div id="ft">FroalaCharts will render here</div>
+
+    <!--
     <%- include('header.html') %>
         <div class="container">
             <div class="row">
@@ -51,6 +138,9 @@
                 </div>
             </div>
         </div>
+
+        -->
+
         <!-- JavaScript Bundle with Popper -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
