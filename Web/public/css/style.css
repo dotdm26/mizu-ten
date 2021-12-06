@@ -45,13 +45,13 @@ p {
 }
 
 .wrapper-register {
-    background: #c7cace;
-    width: 450px;
-    opacity: 0.9;
-    min-height: 400px;
+    background-color: rgba(70, 70, 70, 0.55);
+    width: 35%;
+    min-height: 10%;
+    left: 31.5%;
     display: block;
-    margin: 10em auto;
-    position: relative;
+    top: 20%;
+    position: absolute;
 }
 
 .box {

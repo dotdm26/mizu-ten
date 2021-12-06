@@ -21,6 +21,14 @@ const form_clear = () => {
     agreeTerms.removeAttr('checked');
 }
 
+function wait(ms){
+  var start = new Date().getTime();
+  var end = start;
+  while(end < start + ms) {
+    end = new Date().getTime();
+  }
+}
+
 register.addEventListener('submit', async (evt) => {
     evt.preventDefault();    
     if (pw.value == cpw.value) {
@@ -42,8 +50,9 @@ register.addEventListener('submit', async (evt) => {
           if (json.success == 1) {
             Toast.fire({
               icon: 'success',
-              title: json.message
+              title: json.message,
             })
+            location.replace("http://localhost:3000/login")
           }
           else {
             Toast.fire({
