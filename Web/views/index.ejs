@@ -11,95 +11,99 @@
     <link rel="stylesheet" href="css/ion.rangeSlider.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-     
+    <link rel="stylesheet" href="style.css"> <!--for chart, move to css folder later-->
 
-  <script src=https://unpkg.com/froalacharts@1.0.0/froalacharts.js></script>
-  <script src="https://unpkg.com/froalacharts@1.0.0/themes/froalacharts.theme.froala.js"></script>
-
-  <script type="text/javascript">   
-    var data = {  chart: {
-    "majorTMNumber": "9",
-    "minorTMNumber": "4",
-    caption: "Moisture level",
-    subcaption: "Item № 1",
-    lowerlimit: "0",
-    upperlimit: "100",
-    showvalue: "1",
-    numbersuffix: "%",
-    theme: "froala",
-    //"dataStreamUrl": ,
-    "useMessageLog": "1"    //log
-  },
- /* "alerts": {     //alert popup
-    "alert": [{
-      // set the threshold range
-      "minvalue": "90",
-      "maxvalue": "99",
-      // action on reaching the threshold range, JavaScript function showAlert()
-      "action": "callJS",
-      "param": "showAlert('Current server CPU Utilization is low');"
-    }]
-  },  */
-  colorrange: {
-    color: [
-      {
-        minvalue: "0",
-        maxvalue: "50",
-        code: "#F2726F"
-      },
-      {
-        minvalue: "50",
-        maxvalue: "75",
-        code: "#FFC533"
-      },
-      {
-        minvalue: "75",
-        maxvalue: "100",
-        code: "#62B58F"
-      }
-    ]
-  },
-  dials: {
-    dial: [
-      {
-        value: "80",     // set value here 
-        tooltext: "9% lesser than target" // target - value % lesser than target
-      }
-    ]
-  },
-  trendpoints: {  //maybe add a 'trend arc' instead of single line (probably for temp)
-    point: [
-      {
-        startvalue: "37",
-        displayvalue: "Min Moisture level",
-        thickness: "2",
-        color: "#000000",
-        usemarker: "1",
-        markerbordercolor: "#000000",
-        markertooltext: "80%",
-        trendValueDistance: "10"
-      }
-    ]
-  }
-};
-            FroalaCharts.ready(function () {
-            new FroalaCharts({
-                id: "chart_1",
-                type: 'angulargauge',
-                renderAt: 'ft',
-                width: '800',
-                height: '500',
-                dataSource: data
-            }).render();
-        });
-    </script>
+  
     
 </head>
 
 
 <body>
+  
+  <div class="gauge-example">
+        <div>
+            <h1>Temperature</h1>
+            <div id="demoGauge" class="gauge" style="
+               --gauge-bg: #FAB2EA;
+                --gauge-value:0;
+                width:200px;
+                height:200px;">
 
-    <div id="ft">FroalaCharts will render here</div>
+                <div class="ticks">
+                    <div class="tithe" style="--gauge-tithe-tick:1;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:2;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:3;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:4;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:6;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:7;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:8;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:9;"></div>
+                    <div class="min"></div>
+                    <div class="mid"></div>
+                    <div class="max"></div>
+                </div>
+                <div class="tick-circle"></div>
+
+                <div class="needle">
+                    <div class="needle-head"></div>
+                </div>
+                <div class="labels">
+                    <div class="value-label"></div>
+                </div>
+            </div>
+            <p>
+                <label for="points">Value range 0-100</label><br />
+                <input type="range" id="gaugeValue-demoGauge" name="gaugeValue" min="0" max="100" value="0"
+                    onInput="updateGauge('demoGauge', 0, 100);" onChange="updateGauge('demoGauge', 0, 100);" />
+            </p>
+        </div>
+        <div class="gauge-glossy">
+            <h1>Moisture</h1>
+
+            <!-- Demo gauge 2-->
+            <div id="demoGauge2" class="gauge" style="
+                --gauge-bg: #D0FEF5;
+                --gauge-value:0;
+                --gauge-display-value:0;
+                width:25vw;
+                height:25vw;">
+
+                <div class="ticks">
+                    <div class="tithe" style="--gauge-tithe-tick:1;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:2;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:3;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:4;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:6;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:7;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:8;"></div>
+                    <div class="tithe" style="--gauge-tithe-tick:9;"></div>
+                    <div class="min"></div>
+                    <div class="mid"></div>
+                    <div class="max"></div>
+                </div>
+                <div class="tick-circle"></div>
+
+                <div class="needle">
+                    <div class="needle-head"></div>
+                </div>
+                <div class="labels">
+                    <div class="value-label"></div>
+                </div>
+            </div>
+            <p>
+                <label for="points">value range 0-100</label><br />
+                <input type="range" id="gaugeValue-demoGauge2" name="gaugeValue" min="0" max="100" value="0"
+                    onInput="updateGauge('demoGauge2', 0, 100);" onChange="updateGauge('demoGauge2', 0, 100);" />
+            </p>
+        </div>
+        <script type="text/javascript">
+            function updateGauge(id, min, max) {
+                const newGaugeDisplayValue = document.getElementById("gaugeValue-" + id).value;
+                const newGaugeValue = Math.floor(((newGaugeDisplayValue - min) / (max - min)) * 100);
+                document.getElementById(id).style.setProperty('--gauge-display-value', newGaugeDisplayValue);
+                document.getElementById(id).style.setProperty('--gauge-value', newGaugeValue);
+            }
+        </script>
 
     <!--
     <%- include('header.html') %>
