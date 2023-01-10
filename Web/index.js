@@ -14,7 +14,7 @@ app.use('/', routes);
 
 //MongoDb connection
 const mongoose = require('mongoose'); //mongoose
-const mongoURL = 'mongodb+srv://week3_task1_2:metropolia_123@cluster0.rushy.mongodb.net/cars_info_db?retryWrites=true&w=majority';
+const mongoURL = 'mongodb://danils:metropolia123@cluster0-shard-00-00.bcxje.mongodb.net:27017,cluster0-shard-00-01.bcxje.mongodb.net:27017,cluster0-shard-00-02.bcxje.mongodb.net:27017/test?replicaSet=atlas-cl2wx4-shard-0&ssl=true&authSource=admin';
 mongoose.connect(mongoURL, { useNewUrlParser: true });
 const db = mongoose.connection;
 //Error
