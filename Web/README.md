@@ -12,15 +12,28 @@ This part of our IT project consists of a web part for the convenience of users 
 # User manual
 
 - Download Git bash
-- Go to derictory that you need
+- Open terminal
+- Create a folder and go to derictory that you created
 ```bash
-    cd ....
+    mkdir name
+    cd name
 ```
 - Clone the project
 ```bash
     git clone https://github.com/dotdm26/mizu-ten.git
 ```
-- Open your code editor
+- Go to web folder
+```bash
+    cd Web
+```
+- Install all dependencies
+```bash
+    npm install
+```
+- Run the frontend
+```bash
+    node index.js
+```
 
 ## Authors
 
