@@ -4,137 +4,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EMD | Dashboard</title>
     <!-- CSS only -->
-    <link rel="stylesheet" href="css/main_page_style.css">
-    <link rel="stylesheet" href="css/sweetalert2.css">
-    <link rel="stylesheet" href="css/ion.rangeSlider.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="css/style.css"> <!--for chart, move to css folder later-->
-
-    <!-- Add one more arrow that takes value, make sure that min gets saved and outputed, find a way to save crops and time they need to be watered -->
-    
 </head>
 
-<body>
-    <div class="topnav">
-        <style>
-            .topnav {
-                overflow: hidden;
-                background-color: rgb(100, 100, 100);
-            }
+    <%- include('header.html') %>
+        <div class="container">
+            <div class="container" id="interactive"> </div>
 
-            .topnav a {
-                float: right;
-                color: #f2f2f2;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-            }
-
-            .topnav a:hover {
-                background-color: #ddd;
-                color: black;
-            }
-
-            .button {
-                padding: 0.1rem;
-                margin-top: 0px;
-            }
-        </style>
-
-        <a class="active" href="login">
-            <button type="submit" class="btn btn-primary btn-block" style="color: white; font-size: 15px; height: 40px; width: 75px;">Exit</button>
-        </a>
-        <h2 style="color: black; margin-top: 5px; margin-left: 25px;">NAME of the project</h2>
-      </div>
-  
-  <div class="gauge-example">
-        <div>
-            <h1>Temperature</h1>
-            <div id="demoGauge" class="gauge" style="
-               --gauge-bg: #FAB2EA;
-                --gauge-value:0;
-                width:200px;
-                height:200px;">
-
-                <div class="ticks">
-                    <div class="tithe" style="--gauge-tithe-tick:1;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:2;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:3;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:4;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:6;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:7;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:8;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:9;"></div>
-                    <div class="min"></div>
-                    <div class="mid"></div>
-                    <div class="max"></div>
+            <div class="gauge-example">
+                <div>
+                    <h1>Temperature</h1>
+                    <div id="demoGauge" class="gauge" style="
+                       --gauge-bg: #FAB2EA;
+                        --gauge-value:0;
+                        width:200px;
+                        height:200px;">
+        
+                        <div class="ticks">
+                            <div class="tithe" style="--gauge-tithe-tick:1;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:2;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:3;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:4;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:6;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:7;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:8;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:9;"></div>
+                            <div class="min"></div>
+                            <div class="mid"></div>
+                            <div class="max"></div>
+                        </div>
+                        <div class="tick-circle"></div>
+        
+                        <div class="needle">
+                            <div class="needle-head"></div>
+                        </div>
+                        <div class="labels">
+                            <div class="value-label"></div>
+                        </div>
+                    </div>
+                    <p>
+                        <label for="points">Value range 0-100</label><br />
+                        <input type="range" id="gaugeValue-demoGauge" name="gaugeValue" min="0" max="100" value="0"
+                            onInput="updateGauge('demoGauge', 0, 100);" onChange="updateGauge('demoGauge', 0, 100);" />
+                    </p>
                 </div>
-                <div class="tick-circle"></div>
-
-                <div class="needle">
-                    <div class="needle-head"></div>
+                <div class="gauge-glossy">
+                    <h1>Moisture</h1>
+        
+                    <!-- Demo gauge 2-->
+                    <div id="demoGauge2" class="gauge" style="
+                        --gauge-bg: #d0d8fe;
+                        --gauge-value:0;
+                        --gauge-display-value:0;
+                        width:200px;
+                        height:200px;">
+        
+                        <div class="ticks">
+                            <div class="tithe" style="--gauge-tithe-tick:1;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:2;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:3;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:4;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:6;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:7;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:8;"></div>
+                            <div class="tithe" style="--gauge-tithe-tick:9;"></div>
+                            <div class="min"></div>
+                            <div class="mid"></div>
+                            <div class="max"></div>
+                        </div>
+                        <div class="tick-circle"></div>
+        
+                        <div class="needle">
+                            <div class="needle-head"></div>
+                        </div>
+                        <div class="labels">
+                            <div class="value-label"></div>
+                        </div>
+                    </div>
+                    <p>
+                        <label for="points">value range 0-100</label><br />
+                        <input type="range" id="gaugeValue-demoGauge2" name="gaugeValue" min="0" max="100" value="0"
+                            onInput="updateGauge('demoGauge2', 0, 100);" onChange="updateGauge('demoGauge2', 0, 100);" />
+                    </p>
                 </div>
-                <div class="labels">
-                    <div class="value-label"></div>
-                </div>
-            </div>
-            <p>
-                <label for="points">Value range 0-100</label><br />
-                <input type="range" id="gaugeValue-demoGauge" name="gaugeValue" min="0" max="100" value="0"
-                    onInput="updateGauge('demoGauge', 0, 100);" onChange="updateGauge('demoGauge', 0, 100);" />
-            </p>
+                <script type="text/javascript">
+                    function updateGauge(id, min, max) {
+                        const newGaugeDisplayValue = document.getElementById("gaugeValue-" + id).value;
+                        const newGaugeValue = Math.floor(((newGaugeDisplayValue - min) / (max - min)) * 100);
+                        document.getElementById(id).style.setProperty('--gauge-display-value', newGaugeDisplayValue);
+                        document.getElementById(id).style.setProperty('--gauge-value', newGaugeValue);
+                    }
+                </script>
         </div>
-        <div class="gauge-glossy">
-            <h1>Moisture</h1>
+        <!-- /.card-body-->
+        <!-- Main jquery -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <!-- FLOT CHARTS -->
+        <script src="js/jquery.flot.js"></script>
+        <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+        <script src="js/jquery.flot.resize.js"></script>
+        <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+        <script src="js/jquery.flot.pie.js"></script>
+        <!-- SweetAlert2 -->
+        <script src="js/sweetalert2.min.js"></script>
+        <!-- Toastr -->
+        <script src="js/toastr.min.js"></script>
 
-            <!-- Demo gauge 2-->
-            <div id="demoGauge2" class="gauge" style="
-                --gauge-bg: #d0d8fe;
-                --gauge-value:0;
-                --gauge-display-value:0;
-                width:200px;
-                height:200px;">
-
-                <div class="ticks">
-                    <div class="tithe" style="--gauge-tithe-tick:1;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:2;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:3;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:4;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:6;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:7;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:8;"></div>
-                    <div class="tithe" style="--gauge-tithe-tick:9;"></div>
-                    <div class="min"></div>
-                    <div class="mid"></div>
-                    <div class="max"></div>
-                </div>
-                <div class="tick-circle"></div>
-
-                <div class="needle">
-                    <div class="needle-head"></div>
-                </div>
-                <div class="labels">
-                    <div class="value-label"></div>
-                </div>
-            </div>
-            <p>
-                <label for="points">value range 0-100</label><br />
-                <input type="range" id="gaugeValue-demoGauge2" name="gaugeValue" min="0" max="100" value="0"
-                    onInput="updateGauge('demoGauge2', 0, 100);" onChange="updateGauge('demoGauge2', 0, 100);" />
-            </p>
-        </div>
-        <script type="text/javascript">
-            function updateGauge(id, min, max) {
-                const newGaugeDisplayValue = document.getElementById("gaugeValue-" + id).value;
-                const newGaugeValue = Math.floor(((newGaugeDisplayValue - min) / (max - min)) * 100);
-                document.getElementById(id).style.setProperty('--gauge-display-value', newGaugeDisplayValue);
-                document.getElementById(id).style.setProperty('--gauge-value', newGaugeValue);
-            }
-        </script>
-
+        <!-- jquery-validation -->
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/additional-methods.min.js"></script>
+        <script async src="js/chart.js"></script>
 </body>
 </html>

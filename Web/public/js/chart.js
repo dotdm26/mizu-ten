@@ -16,17 +16,6 @@ let pres = [],
     totalPoints = 200,
     mesg = 0;
 
-var Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000
-});
-
-Toast.fire({
-    icon: 'info',
-    title: 'Waiting for the Data'
-})
 
 const sleep = async(ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -35,10 +24,6 @@ const sleep = async(ms) => {
 const loadChartData = async(sample_data) => {
     var new_len = sample_data.length;
     if (new_len == 0) {
-        Toast.fire({
-            icon: 'info',
-            title: 'The file is empty'
-        });
     } 
     else {
         if (pres.length > 0) {
@@ -82,19 +67,12 @@ const getTheData = async() => {
         else {
             mesg++;
             if (mesg + 1 == 3) {
-                Toast.fire({
-                    icon: 'error',
-                    title: 'Plaese check the mqtt or network connection'
-                });
+            
             }
         }
     } 
     else {
         realtime = 'off';
-        Toast.fire({
-            icon: 'info',
-            title: 'Real-time data retrieval stops '
-        });
         mesg = 0;
     }
 }
@@ -183,10 +161,6 @@ $('#realtime .btn').click(function() {
 function changeSample(sam) {
     totalPoints = sam;
     updateChart();
-    Toast.fire({
-        icon: 'success',
-        title: 'Chart is updating'
-    })
 }
 
 const logout = async() => {
@@ -199,15 +173,6 @@ const logout = async() => {
     const response = await fetch(url + '/logout', fetchOptions);
     const json = await response.json();
     if (json.success == 1) {
-        Toast.fire({
-            icon: 'success',
-            title: json.message
-        })
         window.location.href = "http://localhost:3000/login";
-    } else {
-        Toast.fire({
-            icon: 'error',
-            title: json.message
-        })
     }
 }
