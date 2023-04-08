@@ -29,6 +29,8 @@ let old_length_dash = 0; // for validate repeat sending data
 let old_length_chart = 0; // for validate repeat sending data
 let new_len = 0; // getting how many data already received
 
+let dummyData = 90;
+let dummyData2 = 20;
 
 // read the file from json file 
 
@@ -63,7 +65,7 @@ router.get("/", (req, res, next) => {
     if (!req.session.user) {
         res.status(401).render(path.resolve(__dirname + '/views/login'));
     } else {
-        res.status(200).render(path.resolve(__dirname + '/views/index'));
+        res.status(200).redirect('/index')
     }
 });
 /* LOGIN Page access.
@@ -154,7 +156,7 @@ router.get("/index", (req, res, next) => {
     if (!req.session.user) {
         res.status(401).render(path.resolve(__dirname + '/views/login'));
     } else {
-        res.status(200).render(path.resolve(__dirname + '/views/index'));
+        res.status(200).render(path.resolve(__dirname + '/views/index'),{ dummyData, dummyData2 });
     }
 });
 

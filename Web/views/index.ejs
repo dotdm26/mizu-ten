@@ -18,7 +18,8 @@
                     <h1>Temperature</h1>
                     <div id="demoGauge" class="gauge" style="
                        --gauge-bg: #FAB2EA;
-                        --gauge-value:0;
+                        --gauge-value:<%= dummyData %>;
+                        --gauge-display-value:<%= dummyData %>;
                         width:200px;
                         height:200px;">
         
@@ -44,11 +45,6 @@
                             <div class="value-label"></div>
                         </div>
                     </div>
-                    <p>
-                        <label for="points">Value range 0-100</label><br />
-                        <input type="range" id="gaugeValue-demoGauge" name="gaugeValue" min="0" max="100" value="0"
-                            onInput="updateGauge('demoGauge', 0, 100);" onChange="updateGauge('demoGauge', 0, 100);" />
-                    </p>
                 </div>
                 <div class="gauge-glossy">
                     <h1>Moisture</h1>
@@ -56,8 +52,8 @@
                     <!-- Demo gauge 2-->
                     <div id="demoGauge2" class="gauge" style="
                         --gauge-bg: #d0d8fe;
-                        --gauge-value:0;
-                        --gauge-display-value:0;
+                        --gauge-value:<%= dummyData2 %>;
+                        --gauge-display-value:<%= dummyData2 %>;
                         width:200px;
                         height:200px;">
         
@@ -83,20 +79,7 @@
                             <div class="value-label"></div>
                         </div>
                     </div>
-                    <p>
-                        <label for="points">value range 0-100</label><br />
-                        <input type="range" id="gaugeValue-demoGauge2" name="gaugeValue" min="0" max="100" value="0"
-                            onInput="updateGauge('demoGauge2', 0, 100);" onChange="updateGauge('demoGauge2', 0, 100);" />
-                    </p>
                 </div>
-                <script type="text/javascript">
-                    function updateGauge(id, min, max) {
-                        const newGaugeDisplayValue = document.getElementById("gaugeValue-" + id).value;
-                        const newGaugeValue = Math.floor(((newGaugeDisplayValue - min) / (max - min)) * 100);
-                        document.getElementById(id).style.setProperty('--gauge-display-value', newGaugeDisplayValue);
-                        document.getElementById(id).style.setProperty('--gauge-value', newGaugeValue);
-                    }
-                </script>
         </div>
         <!-- /.card-body-->
         <!-- Main jquery -->
