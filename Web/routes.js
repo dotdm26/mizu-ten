@@ -13,8 +13,22 @@ const multer = require("multer");
 /* mqtt settings. */
 
 const mqtt = require('mqtt');
-const addr = 'mqtt://18.198.188.151:21883'; // replace the xs with your broker's IP address
-const client = mqtt.connect(addr); // connect to client using the address
+const addr = 'd448cde686ee4b58b8c75ca6f43118e7.s2.eu.hivemq.cloud'; // replace the xs with your broker's IP address
+//const client = mqtt.connect(addr); // connect to client using the address
+
+const brokerPort = 8883;  
+const clientId = 'web-client';
+const username = 'metropolia';
+const password = 'P4ss12345!';
+const topic = 'my/topic';
+
+
+
+const client = mqtt.connect(`${brokerUrl}:${brokerPort}`, {
+    clientId: clientId,
+    username: username,
+    password: password,
+  });
 
 router.use(express.static(path.join(__dirname, 'views')));
 router.use(express.static(path.join(__dirname, 'data')));
