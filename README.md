@@ -40,14 +40,7 @@ Overview of the project:
   How is this system going to work? , What is really in this system ?, what will be the end result for the consumer   (Danil)
   *..........
 
-# Implementation 
-
-# Task 1
-  1. Sub Task -> Serch a components for the project (Minh & Andrey)
-  2. Sub Task -> Research on multiple components and read Datasheet (Minh & Andrey)
-  3. Sub Task -> Select suitable components (Minh & Andrey)
-# Task 1 outcome
-List of selected components:
+# List of selected components:
 
 Microcontroller      : STM32F0 ARM Cortex-M0 48MHz 64/8KB
 
@@ -63,14 +56,3 @@ Wireless module      : RF-LORA-868-SO
 
 Battery         x3   : Z-A 4000JM 
 
-# Task 2
-  1. Sub Task -> Create GitHub project (Minh)
-  2. Sub Task -> Design readme file and add task outlines (Linga & Andrey)
-  3. Sub Task -> Outline results of previous task (Danil & Andrey)
-  4. Sub Task -> Create frontend and database (Danil & Andrey)
-  5. Sub Task ->
-
-# Task 3
-
-
-# Task 4
