@@ -22,10 +22,6 @@ Overview of the project:
 
 ![](images/pic.jpg)
 
-# Project Features 
-  How is this system going to work? , What is really in this system ?, what will be the end result for the consumer   (Danil)
-  *..........
-
 # List of selected components:
 
 Microcontroller      : STM32F0 ARM Cortex-M0 48MHz 64/8KB
