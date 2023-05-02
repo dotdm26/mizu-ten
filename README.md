@@ -21,21 +21,7 @@ We are required to assemble a system that can operate through an entire farm, wh
 Overview of the project:
 
 ![](images/pic.jpg)
-# Project requirement
-  * Hardware requirement
-    Concept: One key device controls or monitors all other devices.
-    List of components  needed > (Danil)
-     1. Microcontroller > why?
-     2. SMD ADAPTER QFP 48  > why?
-     3. Temp/humidity sensor  > why?
-     4. Solid State Relay   > why? 
-     5. Solenoid Valve    > why?    
-     6. Wireless module   > why?  
-     7. Battery      > why?
-     8. ......   
-  * Software requirement
-     1. C++ IDE, thats controll the system or hardware.
-     2. Node++ for Web Application development 
+
 # Project Features 
   How is this system going to work? , What is really in this system ?, what will be the end result for the consumer   (Danil)
   *..........
