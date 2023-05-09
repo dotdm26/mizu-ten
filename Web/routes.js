@@ -24,7 +24,7 @@ const topic = 'my/topic';
 
 
 
-const client = mqtt.connect(`${brokerUrl}:${brokerPort}`, {
+const client = mqtt.connect(`${addr}:${brokerPort}`, {
     clientId: clientId,
     username: username,
     password: password,
@@ -43,8 +43,8 @@ let old_length_dash = 0; // for validate repeat sending data
 let old_length_chart = 0; // for validate repeat sending data
 let new_len = 0; // getting how many data already received
 
-let dummyData = 90;
-let dummyData2 = 20;
+let dummyData = Math.floor(Math.random() * 60);
+let dummyData2 = Math.floor(Math.random() * 60);
 
 // read the file from json file 
 
