@@ -61,13 +61,14 @@ const int led = 5; //Set LED pin as GPIO5
 #define OLED_RESET 4
 
 /****** WiFi Connection Details *******/
-const char* ssid = "your_wifi_ssid";
-const char* password = "your_wifi_password";
+/* For making MQTT connection working*/
+const char* ssid = "##############"; // here needs to enter wifi SSID to connect to the internet
+const char* password = "##############"; // here needs to enter wifi SSID
 
 /******* MQTT Broker Connection Details *******/
 const char* mqtt_server = "34bab4bb63014dce9e71f4ad8fb6ffc2.s2.eu.hivemq.cloud";
-const char* mqtt_username = "your_mqtt_client_username";
-const char* mqtt_password = "your_mqtt_client_password";
+const char* mqtt_username = "metropolia";
+const char* mqtt_password = "P4ss12345!";
 const int mqtt_port =8883;
 
 /**** Secure WiFi Connectivity Initialisation *****/
@@ -117,6 +118,7 @@ emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=
 
 // RemoteXY configurate
 #pragma pack(push, 1)
+// mobile UI code, stored here
 uint8_t RemoteXY_CONF[] =  // 93 bytes
   { 255, 2, 0, 15, 0, 86, 0, 16, 154, 1, 2, 0, 44, 5, 15, 6, 2, 26, 31, 31,
     79, 78, 0, 79, 70, 70, 0, 4, 128, 7, 20, 51, 5, 2, 26, 71, 56, 12, 46, 39,
@@ -174,7 +176,7 @@ void reconnect() {
   // Loop until we're reconnected
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
-    String clientId = "ESP8266Client-";   // Create a random client ID
+    String clientId = "web-client";   // Create a random client ID
     clientId += String(random(0xffff), HEX);
     // Attempt to connect
     if (client.connect(clientId.c_str(), mqtt_username, mqtt_password)) {
@@ -220,19 +222,17 @@ void setup() {
 
   pinMode(PIN_SWITCH_1, OUTPUT);
   pinMode(PIN_SWITCH_2, OUTPUT);
-  // TODO you setup code
+  // setup diplay code
   Display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x32)
-
-  // i'll follow the license agreement and display the Adafruit logo
-  // and since they were nice enough to supply the libraries
   Display.clearDisplay();
   Display.display();
   delay(1000);
-
+	
   DrawTitles();
-
+  // setup humidity sensor dht11
   dht.setup(DHTpin, DHTesp::DHT11); //Set up DHT11 sensor
   pinMode(led, OUTPUT); //set up LED
+  
   Serial.begin(9600);
   while (!Serial) delay(1);
   setup_wifi();
@@ -242,19 +242,20 @@ void setup() {
   #else
     espClient.setCACert(root_ca);     
   #endif
-
+  // start the MQTT connection
   client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
 }
 
 void loop() {
+  // display the UI interface on the mobile
   RemoteXY_Handler();
-
-  int value = analogRead(AOUT_PIN);        // read the analog value from sensor
+ 
+  int value = analogRead(AOUT_PIN);        // read the analog value from  moisture sensor
   int pre = map(value, 590, 320, 0, 100);  // provide in %
-  char state[2][3]={ "Dry", "Wet"};
-  int index = pre > 30 ? 1 : 0;
-  //strcpy(RemoteXY.text_1, state[index]);
+  char state[2][3]={ "Dry", "Wet"}; // when displaying on the small display
+  int index = pre > 30 ? 1 : 0; // min threshold value 30 by default 
+  //strcpy(RemoteXY.text_1, state[index]); // display the state on the 
   RemoteXY.instrument_1 = pre;
   digitalWrite(PIN_SWITCH_1, (RemoteXY.switch_1 == 0) ? LOW : HIGH);    // Check wifi connection working
   int status = (pre >= (RemoteXY.slider_1 > THRESHOLD ? RemoteXY.slider_1 : THRESHOLD));
@@ -274,23 +275,22 @@ void loop() {
   // now that the display is build, display it...
   Display.display();
 
-  // TODO you loop code
   // use the RemoteXY structure for data transfer
-  // do not call delay()
-
 
   if (!client.connected()) reconnect(); // check if client is connected
   client.loop();
-
   //read DHT11 temperature and humidity reading
   delay(dht.getMinimumSamplingPeriod());
-  float humidity = dht.getHumidity();
+  float humidity = dht.getHumidity(); 
   float temperature = dht.getTemperature();
 
+ 
   DynamicJsonDocument doc(1024);
+	
+  // MQTT array formats 
 
   doc["deviceId"] = "IOT";
-  doc["siteId"] = "TEST1";
+  doc["siteId"] = "web-mqtt-reading";
   doc["humidity"] = humidity;
   doc["temperature"] = temperature;
   doc["moisture"] = pre;
@@ -298,9 +298,9 @@ void loop() {
   char mqtt_message[128];
   serializeJson(doc, mqtt_message);
 
-  publishMessage("esp8266_data", mqtt_message, true);
+  publishMessage("my/topic", mqtt_message, true);
 
-  //delay(5000);
+  delay(5000);
 }
 
 void DrawTitles(void) {
@@ -314,9 +314,7 @@ void DrawTitles(void) {
 
 
 String Format(double val, int dec, int dig) {
-
   // this is my simple way of formatting a number
-  // data = Format(number, digits, decimals) when needed
   int addpad = 0;
   char sbuf[20];
   String fdata = (dtostrf(val, dec, dig, sbuf));
