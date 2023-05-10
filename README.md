@@ -2,7 +2,7 @@
 IoT project
 
 
-![open](images/Documentation.pdf)
+![DOCUMENTATION](images/Documentation.pdf)
 
 Problem:
 
