@@ -1,7 +1,8 @@
 # mizu-ten
 IoT project
 
-**DOCUMENTATION FILE** ![](IoT - Mizu-ten Documentation.pdf) '[open](IoT - Mizu-ten Documentation.pdf)'
+
+![open](images/Documentation.pdf)
 
 Problem:
 
